@@ -25,7 +25,7 @@ func realMain() error {
 		return err
 	}
 
-	ctx, cancel := context.WithTimeout(context.Background(), 15 *time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
 	cfg, err := oauth2autoconf.Get(ctx, u)
