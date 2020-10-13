@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"github.com/tkandal/oauth2autoconf"
 	"net/url"
@@ -33,8 +32,6 @@ func realMain() error {
 		return err
 	}
 
-	if err = json.NewEncoder(os.Stdout).Encode(cfg); err != nil {
-		return err
-	}
+	_, _ = fmt.Fprintf(os.Stdout, "%s", cfg)
 	return nil
 }

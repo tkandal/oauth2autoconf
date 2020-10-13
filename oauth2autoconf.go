@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"strings"
 )
 
 /*
@@ -51,4 +52,12 @@ func Get(ctx context.Context, endp string) (*Oauth2Conf, error) {
 		return nil, err
 	}
 	return cfg, nil
+}
+
+func (oc *Oauth2Conf) String() string {
+	build := &strings.Builder{}
+	if err := json.NewEncoder(build).Encode(oc); err != nil {
+		return ""
+	}
+	return build.String()
 }
